@@ -1,0 +1,28 @@
+config:
+  backup: true
+  create: true
+  dotpath: punkto
+dotfiles:
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_zprofile:
+    src: zprofile
+    dst: ~/.zprofile
+  f_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
+  f_profile:
+    src: profile
+    dst: ~/.profile
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+profiles:
+  luzifer:
+    dotfiles:
+      - f_zshrc
+      - f_zprofile
+      - f_zshenv
+      - f_profile
+      - d_nvim
