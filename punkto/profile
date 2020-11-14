@@ -1,5 +1,5 @@
 #!/bin/zsh
-echo ".profile"
+# echo ".profile"
 
 # shellcheck shell=sh
 # shellcheck disable=SC2034

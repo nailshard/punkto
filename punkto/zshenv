@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-
+# echo .zshenv
 # lifted from:
 # https://github.com/agkozak/dotfiles
 

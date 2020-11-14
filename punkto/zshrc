@@ -2,8 +2,10 @@
 # vi: ft=zsh
 
 if [[ $0 == 'ksh' ]] || [[ $0 == 'sh' ]]; then
+  echo "weird"
   source "$HOME/.shrc" && exit
 elif [[ $0 == 'bash' ]]; then
+  echo "weird"
   source "$HOME/.bashrc" && exit
 fi
 
