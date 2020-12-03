@@ -20,24 +20,25 @@
     "python.venvPath": ["~/.virtualenvs", "~/.cache/pypoetry/virtualenvs"],
 // jedi
     //"python.jediPath": "/Users/username/venvs/jedi/lib/python3.8/site-packages/",
-    "python.jediEnabled": true,
-    "suggest.timeout": 5000,
+    "python.jediEnabled": false,
+    //"suggest.timeout": 5000,
 //formatting
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "/Users/username/venvs/black/bin/black",
 //linting
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false,
+
     //"python.linting.pylintPath": "/Users/username/venvs/pylint/bin/pylint"
 
     "signature.target": "echo",
     "suggest.autoTrigger": "always",
     "suggest.triggerAfterInsertEnter": true,
     "suggest.snippetIndicator": "►",
-    "suggest.maxCompleteItemCount": 40,
+    "suggest.maxCompleteItemCount": 80,
     "suggest.labelMaxLength": 40,
-    "suggest.floatEnable": false,
-    "suggest.timeout": 5000,
+    "suggest.floatEnable": true,
+    "suggest.timeout": 10000,
     "suggest.completionItemKindLabels": {
         "text": "t",
         "method": "m",
@@ -59,21 +60,21 @@
         "python": {
             "command": "pyls",
             "args": [
-                "-vv",
+            //    "-v",
                 "--log-file",
                 "/tmp/lsp_python.log"
             ],
-            "trace.server": "verbose",
+            //"trace.server": "verbose",
             "filetypes": [
                 "python"
             ],
             "settings": {
                 "pyls": {
                     "enable": true,
-                    "trace": {
-                        "server": "verbose"
-                    },
-                    "commandPath": "",
+             //       "trace": {
+              //          "server": "verbose"
+               //     },
+                    "commandPath": "/home/tom/.pyenv/shims/pyls",
                     "configurationSources": [
                         "pycodestyle"
                     ],
@@ -82,13 +83,13 @@
                             "enabled": true
                         },
                         "jedi_hover": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "jedi_references": {
                             "enabled": true
                         },
                         "jedi_signature_help": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "jedi_symbols": {
                             "enabled": true,
@@ -102,7 +103,7 @@
                             "enabled": true
                         },
                         "pycodestyle": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "pydocstyle": {
                             "enabled": false,
@@ -110,7 +111,7 @@
                             "matchDir": "[^\\.].*"
                         },
                         "pyflakes": {
-                            "enabled": true
+                            "enabled": false
                         },
                         "rope_completion": {
                             "enabled": true

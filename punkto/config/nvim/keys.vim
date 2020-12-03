@@ -37,6 +37,7 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CocList
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -87,6 +88,16 @@ noremap <silent> <m-k> :TmuxNavigateUp<cr>
 noremap <silent> <m-l> :TmuxNavigateRight<cr>
 noremap <silent> <C-_> :<c-u> call vista#finder#fzf#Run() <CR>
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 " Use tab to trigger completion and navigate.
 " inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -176,6 +187,16 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 " Add status line support for integration with other plugins. checkout `:h coc-status`
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
 
 " nmap <space>e :CocCommand explorer<CR>
 

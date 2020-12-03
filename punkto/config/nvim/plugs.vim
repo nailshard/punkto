@@ -19,6 +19,7 @@ Plug 'romainl/vim-cool'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'bagrat/vim-buffet'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'airblade/vim-gitgutter'
@@ -27,24 +28,31 @@ Plug 'vim-scripts/Mouse-Toggle'
 Plug 'liuchengxu/vim-which-key' " , { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'ktonga/vim-follow-my-lead'
 
-
-
-" completion/snippets/linters
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-path'
+"  completion/snippets/linters
 " Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'iamcco/coc-actions', {'do': 'yarn install'}
-Plug 'voldikss/coc-browser', {'do': 'yarn install --frozen-lockfile'}
-Plug 'weirongxu/coc-explorer', {'do': 'yarn install'}
-Plug 'neoclide/coc-git', {'do': 'yarn install'}
-Plug 'neoclide/coc-lists', {'do': 'yarn install'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" let g:deoplete#enable_at_startup = 1
+
+" Plug 'weirongxu/coc-explorer', {'do': 'yarn install'}
+" Plug 'neoclide/coc-git', {'do': 'yarn install'}
+" Plug 'neoclide/coc-lists', {'do': 'yarn install'}
 " Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install'}
 " Plug 'fannheyward/coc-marketplace', {'do': 'yarn install'}
-Plug 'neoclide/coc-python', {'do': 'yarn install'}
 " Plug 'fannheyward/coc-pyright', {'do': 'yarn install'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install'}
+" Plug 'neoclide/coc-snippets', {'do': 'yarn install'}
 " Plug 'neoclide/coc-solargraph', {'do': 'yarn install'}
-Plug 'voldikss/coc-template', {'do': 'yarn install'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'voldikss/coc-template', {'do': 'yarn install'}
+" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-vimlsp', {'do': 'yarn install'}
 
 
@@ -100,7 +108,9 @@ Plug 'sunaku/tmux-navigate'
 Plug 'liuchengxu/vista.vim'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'numirias/semshi'
-Plug 'plasticboy/vim-markdown'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" Plug 'plasticboy/vim-markdown'
 " Plug 'sbdchd/neoformat'
 Plug 'tomlion/vim-solidity'
 Plug 'metakirby5/codi.vim'
@@ -117,6 +127,8 @@ Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+map ; :Files<CR>
+
 Plug 'thaerkh/vim-workspace'
 Plug 'farmergreg/vim-lastplace'
 

@@ -2,8 +2,8 @@
 ": Plugins {{{
 " Install vim-plug if not installed
 
-" set verbose=2
-" set verbosefile=/tmp/nvim.log
+set verbose=1
+set verbosefile=/tmp/nvim.log
 
 set termguicolors
 
@@ -14,6 +14,10 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#d3869b guifg=#282828
+endfunction
 
 source $HOME/.config/nvim/plugs.vim
 " lua require'colorizer'.setup()
@@ -125,7 +129,9 @@ set infercase
 " }}}
 " highlight WhitespaceEOL ctermbg=red guibg=red
 " match WhitespaceEOL /\s\+$/
-let g:python3_host_prog = '/usr/bin/python3'
+
+let g:python3_host_prog = '/home/tom/.pyenv/shims/python'
+let g:python2_host_prog = '/home/tom/.pyenv/shims/python2'
 " let g:python3_host_prog = '/home/tom/.pyenv/versions/neovim3/bin/python'
 " let g:python_host_prog = '/home/tom/.pyenv/versions/neovim2/bin/python'
 let g:markdown_fenced_languages = [
@@ -140,10 +146,10 @@ set pastetoggle=<F3>
 set bg=dark
 " colorscheme gruvbox
 " colorscheme dracula
-" let g:gruvbox_material_background = 'hard'
-" let g:gruvbox_material_enable_italic = 1
-" let g:gruvbox_material_enable_italic_comment = 1
 colorscheme gruvbox-material
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_enable_italic_comment = 1
 " source $HOME/.config/nvim/colors/bliss.vim
 " colorscheme bliss
 autocmd VimEnter *
@@ -281,9 +287,9 @@ let NERDTreeCascadeSingleChildDir=0
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
 
@@ -396,31 +402,31 @@ let g:pymode_rope = 0
 let g:pymode_trim_whitespaces = 0
 let g:pymode_lint = 0
 let g:pymode_doc = 0
-
-  let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-actions',
-    \ 'coc-lists',
-    \ 'coc-emmet',
-    \ 'coc-pairs',
-    \ 'coc-tsserver',
-    \ 'coc-floaterm',
-    \ 'coc-html',
-    \ 'coc-css',
-    \ 'coc-emoji',
-    \ 'coc-cssmodules',
-    \ 'coc-yaml',
-    \ 'coc-python',
-    \ 'coc-explorer',
-    \ 'coc-svg',
-    \ 'coc-prettier',
-    \ 'coc-vimlsp',
-    \ 'coc-xml',
-    \ 'coc-yank',
-    \ 'coc-json',
-    \ 'coc-marketplace',
-    \ ]
-
+  "
+  " let g:coc_global_extensions = [
+  "   \ 'coc-actions',
+  "   \ 'coc-yaml',
+  "   \ 'coc-vimlsp',
+  "   \ 'coc-json',
+  "   \ 'coc-html',
+  "   \ 'coc-css',
+  "   \ 'coc-floaterm',
+  "   \ ]
+  "   \ 'coc-snippets',
+  "   \ 'coc-lists',
+  "   \ 'coc-emmet',
+  "   \ 'coc-pairs',
+  "   \ 'coc-tsserver',
+  "   \ 'coc-emoji',
+  "   \ 'coc-cssmodules',
+  "   \ 'coc-explorer',
+  "   \ 'coc-svg',
+  "   \ 'coc-prettier',
+  "   \ 'coc-xml',
+  "   \ 'coc-yank',
+  "   \ 'coc-marketplace',
+  "   \ ]
+  "
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 
@@ -454,8 +460,9 @@ set signcolumn=yes
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 " Fix enter key behavior quickfix window
-
+"
 augroup mygroup
     autocmd!
     " Setup formatexpr specified filetype(s).
@@ -474,7 +481,7 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
+"
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -539,9 +546,9 @@ autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype less setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
-autocmd Filetype python setlocal omnifunc=jedi#completions tw=79
-            \ completeopt-=preview
-            \ formatoptions+=c
+" autocmd Filetype python setlocal omnifunc=jedi#completions tw=79
+"             \ completeopt-=preview
+"             \ formatoptions+=c
 
 " RustFmt uses 100 for line width
 autocmd bufreadpre *.rs setlocal colorcolumn=100

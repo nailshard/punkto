@@ -18,10 +18,13 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
 profiles:
   luzifer:
     dotfiles:
-      - ALL
+    - ALL
   stiller:
     dotfiles:
-      - ALL
+    - ALL

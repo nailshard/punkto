@@ -357,6 +357,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 
 # Use Esc-K for run-help
 bindkey -M vicmd '?' run-help
+bindkey -M vicmd '^[' sudo-command-line
 
 # Allow v to edit the command line
 autoload -Uz edit-command-line
