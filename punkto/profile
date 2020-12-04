@@ -32,7 +32,6 @@ fi
 
 export MANPAGER
 MANPAGER='less -X'
-export BROWSER=w3m
 
 go="$HOME/go"
 gosrc="$go/src"

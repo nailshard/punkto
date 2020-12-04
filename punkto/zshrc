@@ -277,8 +277,11 @@ zinit for \
 zt 0c light-mode for \
     pack'bgn-binary' \
         junegunn/fzf \
-    sbin from'gh-r' submods'NICHOLAS85/zsh-fast-alias-tips -> plugin' pick'plugin/*.zsh' \
-        sei40kr/fast-alias-tips-bin
+    # sbin from'gh-r' submods'NICHOLAS85/zsh-fast-alias-tips -> plugin' pick'plugin/*.zsh' \
+    #     sei40kr/fast-alias-tips-bin
+zinit ice from'gh-r' as'program'
+zinit light sei40kr/fast-alias-tips-bin
+zinit light sei40kr/zsh-fast-alias-tips
 
 zt 0c light-mode binary for \
     sbin'fd*/fd;fd*/fd -> fdfind' from"gh-r" \
@@ -333,6 +336,18 @@ zinit wait lucid for \
     \
     light-mode zsh-users/zsh-history-substring-search
 
+zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
+zinit light g-plane/zsh-yarn-autocompletions
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+compctl -K _pip_completion pip3
 #####################
 # SETTINGS          #
 #####################
@@ -346,6 +361,8 @@ zle -N history-substring-search-up
 zle -N history-substring-search-down
 
 zmodload zsh/complist
+bindkey '^ ' autosuggest-accept
+bindkey '^H' backward-kill-word
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
@@ -357,7 +374,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 
 # Use Esc-K for run-help
 bindkey -M vicmd '?' run-help
-bindkey -M vicmd '^[' sudo-command-line
 
 # Allow v to edit the command line
 autoload -Uz edit-command-line
@@ -418,7 +434,6 @@ ZSHZ_UNCOMMON=1
 # 10ms for key sequences
 KEYTIMEOUT=1
 alias which &> /dev/null && unalias which
-
 # While tinkering with ZSH-z
 if (( SHLVL == 1 )); then
   [[ ! -d ${HOME}/.zbackup ]] && mkdir "${HOME}/.zbackup"
@@ -428,3 +443,5 @@ compile_or_recompile $compdump
 
 [[ true == $DOZOPROF ]] && zprof && zmodload -u zsh/zprof
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
